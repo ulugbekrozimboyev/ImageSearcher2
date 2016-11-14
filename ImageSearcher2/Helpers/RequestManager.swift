@@ -43,9 +43,11 @@ class RequestManager {
             
         }
     }
+
     
     
-    func getEditorChoicesImage() {
+    func getEditorChoicesImage(completionHandler: @escaping (_ json: JSON?, _ error: Error?) -> Void) {
+        
         let parametrs: [String: Any] = ["key": API.apiKey, "editors_choice": true]
         
         Alamofire.request( API.baseURL, parameters: parametrs).responseJSON { response in
@@ -54,27 +56,48 @@ class RequestManager {
             case .success(let value):
                 let json = JSON(value)
                 
-                if let hits = json["hits"].array {
-                    print(hits.count)
-                    
-                    for item in hits {
-                        
-                        if let url = item["webformatURL"].string, let likes = item["likes"].int, let favorites = item["favorites"].int {
-                            
-                            let photo = Photo(url: url, likes: likes, favorites: favorites)
-                            
-                            print(photo)
-                            
-                        }
-                        
-                    }
-                    
-                }
-            case .failure(let error): print(error)
+                completionHandler(json, nil)
+                
+            case .failure(let error):
+                print(error)
+                completionHandler(nil, error)
             }
             
         }
     }
+    
+    
+//    
+//    func getEditorChoicesImage() {
+//        let parametrs: [String: Any] = ["key": API.apiKey, "editors_choice": true]
+//        
+//        Alamofire.request( API.baseURL, parameters: parametrs).responseJSON { response in
+//            
+//            switch(response.result) {
+//            case .success(let value):
+//                let json = JSON(value)
+//                
+//                if let hits = json["hits"].array {
+//                    print(hits.count)
+//                    
+//                    for item in hits {
+//                        
+//                        if let url = item["webformatURL"].string, let likes = item["likes"].int, let favorites = item["favorites"].int {
+//                            
+//                            let photo = Photo(url: url, likes: likes, favorites: favorites)
+//                            
+//                            print(photo)
+//                            
+//                        }
+//                        
+//                    }
+//                    
+//                }
+//            case .failure(let error): print(error)
+//            }
+//            
+//        }
+//    }
     
     // rasmni idsi bo'yicha qidirish
     func getImageById(imageId id: String) {

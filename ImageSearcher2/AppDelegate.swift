@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        RequestManager.sharedInstance.getEditorChoicesImage()
-        
+        RequestManager.sharedInstance.getEditorChoicesImage(completionHandler: completionHandler)
         return true
     }
+        
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -43,7 +44,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+        
+        
+    func completionHandler(json: JSON?, error: Error?){
+            
+        guard let json = json else {
+            return
+        }
+            
+        if let hits = json["hits"].array {
+            print(hits.count)
+                
+            for item in hits {
+                    
+                if let url = item["webformatURL"].string, let likes = item["likes"].int, let favorites = item["favorites"].int {
+                        
+                    let photo = Photo(url: url, likes: likes, favorites: favorites)
+                        
+                    print(photo)
+                        
+                }
+                    
+            }
+            
+        }
+        
+    }
 
 }
 
