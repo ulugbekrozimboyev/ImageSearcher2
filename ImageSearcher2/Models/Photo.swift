@@ -7,11 +7,19 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Photo {
-    let url: String
+    let url: String?
     
-    let likes: Int
+    let likes: Int?
     
-    let favorites: Int
+    let favorites: Int?
+    
+    init(json: JSON) {
+        self.url = json["webformatURL"].string
+        self.likes = json["likes"].int
+        self.favorites = json["favorites"].int
+    }
+    
 }

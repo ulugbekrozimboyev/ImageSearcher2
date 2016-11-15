@@ -46,7 +46,7 @@ class RequestManager {
 
     
     
-    func getEditorChoicesImage(completionHandler: @escaping (_ json: JSON?, _ error: Error?) -> Void) {
+    func getEditorChoicesImage(completionHandler: @escaping (_ listOfPhotos: [Photo]?, _ error: Error?) -> Void) {
         
         let parametrs: [String: Any] = ["key": API.apiKey, "editors_choice": true]
         
@@ -55,8 +55,15 @@ class RequestManager {
             switch(response.result) {
             case .success(let value):
                 let json = JSON(value)
+                var photos = [Photo]()
                 
-                completionHandler(json, nil)
+                if let hits = json["hits"].array {
+                    for item in hits {
+                        photos.append(Photo(json: item))
+                    }
+                }
+                
+                completionHandler(photos, nil)
                 
             case .failure(let error):
                 print(error)
@@ -67,37 +74,6 @@ class RequestManager {
     }
     
     
-//    
-//    func getEditorChoicesImage() {
-//        let parametrs: [String: Any] = ["key": API.apiKey, "editors_choice": true]
-//        
-//        Alamofire.request( API.baseURL, parameters: parametrs).responseJSON { response in
-//            
-//            switch(response.result) {
-//            case .success(let value):
-//                let json = JSON(value)
-//                
-//                if let hits = json["hits"].array {
-//                    print(hits.count)
-//                    
-//                    for item in hits {
-//                        
-//                        if let url = item["webformatURL"].string, let likes = item["likes"].int, let favorites = item["favorites"].int {
-//                            
-//                            let photo = Photo(url: url, likes: likes, favorites: favorites)
-//                            
-//                            print(photo)
-//                            
-//                        }
-//                        
-//                    }
-//                    
-//                }
-//            case .failure(let error): print(error)
-//            }
-//            
-//        }
-//    }
     
     // rasmni idsi bo'yicha qidirish
     func getImageById(imageId id: String) {
@@ -115,5 +91,19 @@ class RequestManager {
         }
     }
     
+    func getImageByURL(urlOfImage url: String, completionHandler: @escaping (_ image: UIImage?, _ error: Error?) -> Void ){
+        
+        Alamofire.request(url).responseImage { response in
+            
+            switch(response.result) {
+            case .success(let value): print(value)
+                completionHandler(value, nil)
+            case .failure(let error):
+                print("error")
+                print(error)
+            }
+            
+        }
+    }
 
 }

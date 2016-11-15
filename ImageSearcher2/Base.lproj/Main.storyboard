@@ -18,24 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="180" id="7gW-5K-mAd">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="180" id="7gW-5K-mAd" customClass="PhotoTableViewCell" customModule="ImageSearcher2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7gW-5K-mAd" id="ZGT-Tm-fq5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OkQ-Kx-Etq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                                         </imageView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KNh-Yq-rJa">
+                                            <rect key="frame" x="177" y="79" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="OkQ-Kx-Etq" secondAttribute="bottom" id="1a5-tC-1Su"/>
                                         <constraint firstAttribute="trailing" secondItem="OkQ-Kx-Etq" secondAttribute="trailing" id="Ddg-qQ-40o"/>
+                                        <constraint firstItem="KNh-Yq-rJa" firstAttribute="centerX" secondItem="OkQ-Kx-Etq" secondAttribute="centerX" id="DmL-XT-R81"/>
                                         <constraint firstItem="OkQ-Kx-Etq" firstAttribute="leading" secondItem="ZGT-Tm-fq5" secondAttribute="leading" id="OUE-K5-szJ"/>
                                         <constraint firstItem="OkQ-Kx-Etq" firstAttribute="top" secondItem="ZGT-Tm-fq5" secondAttribute="top" id="huh-kZ-eTp"/>
+                                        <constraint firstItem="KNh-Yq-rJa" firstAttribute="centerY" secondItem="ZGT-Tm-fq5" secondAttribute="centerY" id="laE-ak-QZk"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="activityIndicator" destination="KNh-Yq-rJa" id="gjr-Sm-HNg"/>
+                                    <outlet property="mainImage" destination="OkQ-Kx-Etq" id="77g-5B-u8h"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

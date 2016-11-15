@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        RequestManager.sharedInstance.getEditorChoicesImage(completionHandler: completionHandler)
+//        RequestManager.sharedInstance.getEditorChoicesImage(completionHandler: completionHandler)
         return true
     }
         
@@ -46,30 +46,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
         
         
-    func completionHandler(json: JSON?, error: Error?){
-            
-        guard let json = json else {
-            return
-        }
-            
-        if let hits = json["hits"].array {
-            print(hits.count)
-                
-            for item in hits {
-                    
-                if let url = item["webformatURL"].string, let likes = item["likes"].int, let favorites = item["favorites"].int {
-                        
-                    let photo = Photo(url: url, likes: likes, favorites: favorites)
-                        
-                    print(photo)
-                        
-                }
-                    
-            }
-            
-        }
-        
-    }
+//    func completionHandler(json: JSON?, error: Error?){
+//            
+//        guard let json = json else {
+//            return
+//        }
+//            
+//        if let hits = json["hits"].array {
+//            print(hits.count)
+//                
+//            for item in hits {
+//                    
+//                if let url = item["webformatURL"].string, let likes = item["likes"].int, let favorites = item["favorites"].int {
+//                        
+//                    let photo = Photo(url: url, likes: likes, favorites: favorites)
+//                        
+//                    print(photo)
+//                        
+//                }
+//                    
+//            }
+//            
+//        }
+//        
+//    }
 
 }
 

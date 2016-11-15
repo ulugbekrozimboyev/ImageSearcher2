@@ -15,6 +15,7 @@
 		BC750DD41DD989BF0048DFBE /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC750DD31DD989BF0048DFBE /* RequestManager.swift */; };
 		BC750DD61DD990EC0048DFBE /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC750DD51DD990EC0048DFBE /* Photo.swift */; };
 		BC8166171DD9B9AD008AB2FF /* SearchBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8166161DD9B9AD008AB2FF /* SearchBarTableViewController.swift */; };
+		BCEC44201DD9F6E90083CE6D /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC441F1DD9F6E90083CE6D /* PhotoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		BC750DD31DD989BF0048DFBE /* RequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		BC750DD51DD990EC0048DFBE /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BC8166161DD9B9AD008AB2FF /* SearchBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBarTableViewController.swift; path = ImageSearcher2/Controllers/SearchBarTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		BCEC441F1DD9F6E90083CE6D /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoTableViewCell.swift; path = ImageSearcher2/Controllers/PhotoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		C00DB753C8F6753434543795 /* Pods_ImageSearcher2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearcher2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 		BC750DD11DD979B50048DFBE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCEC441F1DD9F6E90083CE6D /* PhotoTableViewCell.swift */,
 				BC8166161DD9B9AD008AB2FF /* SearchBarTableViewController.swift */,
 			);
 			path = Controllers;
@@ -249,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCEC44201DD9F6E90083CE6D /* PhotoTableViewCell.swift in Sources */,
 				BC750DD61DD990EC0048DFBE /* Photo.swift in Sources */,
 				BC750DBE1DD978110048DFBE /* AppDelegate.swift in Sources */,
 				BC750DD41DD989BF0048DFBE /* RequestManager.swift in Sources */,
