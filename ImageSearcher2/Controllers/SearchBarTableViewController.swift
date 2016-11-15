@@ -63,6 +63,27 @@ class SearchBarTableViewController: UITableViewController, UISearchBarDelegate {
         // #warning Incomplete implementation, return the number of rows
         return self.dataSourceOfPhotos.count
     }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+        let destinationViewController = segue.destination as! DetailViewController
+        let _ = destinationViewController.view
+        
+        guard  let indexPath = self.tableView.indexPathForSelectedRow else {
+            return
+        }
+        
+        let indexOfCellSelected = indexPath.row
+        let cell = self.tableView.cellForRow(at: indexPath) as! PhotoTableViewCell
+        
+        destinationViewController.numberOfLikes.text = "\(self.dataSourceOfPhotos[indexOfCellSelected].likes!)"
+        destinationViewController.numberOfFavorites.text = "\(self.dataSourceOfPhotos[indexOfCellSelected].favorites!)"
+        destinationViewController.mainImage.image = cell.mainImage.image
+        
+        
+    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

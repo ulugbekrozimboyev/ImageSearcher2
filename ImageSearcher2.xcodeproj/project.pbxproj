@@ -16,6 +16,7 @@
 		BC750DD61DD990EC0048DFBE /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC750DD51DD990EC0048DFBE /* Photo.swift */; };
 		BC8166171DD9B9AD008AB2FF /* SearchBarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8166161DD9B9AD008AB2FF /* SearchBarTableViewController.swift */; };
 		BCEC44201DD9F6E90083CE6D /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC441F1DD9F6E90083CE6D /* PhotoTableViewCell.swift */; };
+		BCEC44221DDAC55B0083CE6D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC44211DDAC55B0083CE6D /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		BC750DD51DD990EC0048DFBE /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BC8166161DD9B9AD008AB2FF /* SearchBarTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchBarTableViewController.swift; path = ImageSearcher2/Controllers/SearchBarTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		BCEC441F1DD9F6E90083CE6D /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoTableViewCell.swift; path = ImageSearcher2/Controllers/PhotoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		BCEC44211DDAC55B0083CE6D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C00DB753C8F6753434543795 /* Pods_ImageSearcher2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageSearcher2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 		BC750DD11DD979B50048DFBE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BCEC44211DDAC55B0083CE6D /* DetailViewController.swift */,
 				BCEC441F1DD9F6E90083CE6D /* PhotoTableViewCell.swift */,
 				BC8166161DD9B9AD008AB2FF /* SearchBarTableViewController.swift */,
 			);
@@ -255,6 +258,7 @@
 				BCEC44201DD9F6E90083CE6D /* PhotoTableViewCell.swift in Sources */,
 				BC750DD61DD990EC0048DFBE /* Photo.swift in Sources */,
 				BC750DBE1DD978110048DFBE /* AppDelegate.swift in Sources */,
+				BCEC44221DDAC55B0083CE6D /* DetailViewController.swift in Sources */,
 				BC750DD41DD989BF0048DFBE /* RequestManager.swift in Sources */,
 				BC8166171DD9B9AD008AB2FF /* SearchBarTableViewController.swift in Sources */,
 			);
@@ -301,6 +305,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -350,6 +355,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -378,6 +384,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 059E8DEC61296F3AE855A1D6 /* Pods-ImageSearcher2.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ImageSearcher2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -391,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29552C702B84060815E3F4AB /* Pods-ImageSearcher2.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ImageSearcher2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

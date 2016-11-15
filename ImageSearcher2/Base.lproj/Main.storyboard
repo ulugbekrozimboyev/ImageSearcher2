@@ -18,18 +18,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="180" id="7gW-5K-mAd" customClass="PhotoTableViewCell" customModule="ImageSearcher2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="180" id="7gW-5K-mAd" customClass="PhotoTableViewCell" customModule="ImageSearcher2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7gW-5K-mAd" id="ZGT-Tm-fq5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OkQ-Kx-Etq">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="180"/>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KNh-Yq-rJa">
-                                            <rect key="frame" x="177" y="79" width="20" height="20"/>
+                                            <rect key="frame" x="160.5" y="79" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
@@ -44,6 +44,7 @@
                                 <connections>
                                     <outlet property="activityIndicator" destination="KNh-Yq-rJa" id="gjr-Sm-HNg"/>
                                     <outlet property="mainImage" destination="OkQ-Kx-Etq" id="77g-5B-u8h"/>
+                                    <segue destination="cxw-qK-RJS" kind="push" id="o9y-xz-I0m"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="659.5" y="142.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="TF7-wY-WcM">
             <objects>
-                <viewController id="cxw-qK-RJS" sceneMemberID="viewController">
+                <viewController id="cxw-qK-RJS" customClass="DetailViewController" customModule="ImageSearcher2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gAu-vN-Xr1"/>
                         <viewControllerLayoutGuide type="bottom" id="Eb4-ZW-rCG"/>
@@ -71,8 +72,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="luS-uK-9mt">
-                                <rect key="frame" x="0.0" y="256" width="375" height="155"/>
+                                <rect key="frame" x="0.0" y="300" width="375" height="67"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmE-cu-baj">
+                                <rect key="frame" x="34" y="445" width="40" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVR-TD-Rkq">
+                                <rect key="frame" x="34" y="490" width="70" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fo6-OM-wpb">
+                                <rect key="frame" x="140" y="445" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atc-PX-FEg">
+                                <rect key="frame" x="140" y="490" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -82,10 +111,16 @@
                             <constraint firstItem="luS-uK-9mt" firstAttribute="centerY" secondItem="0aG-sk-ici" secondAttribute="centerY" id="zF6-Jw-MPX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4Y2-Bp-NTA"/>
+                    <connections>
+                        <outlet property="mainImage" destination="luS-uK-9mt" id="VgN-rs-Rcb"/>
+                        <outlet property="numberOfFavorites" destination="atc-PX-FEg" id="wet-jA-jbh"/>
+                        <outlet property="numberOfLikes" destination="Fo6-OM-wpb" id="Sm4-IQ-GiB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Tr-wN-fu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="143"/>
+            <point key="canvasLocation" x="1171" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kqh-Ra-U9b">
