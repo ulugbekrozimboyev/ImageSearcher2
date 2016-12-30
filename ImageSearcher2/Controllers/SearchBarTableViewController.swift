@@ -17,6 +17,12 @@ class SearchBarTableViewController: UITableViewController, UISearchBarDelegate {
             self.tableView.reloadData()
         }
     }
+    
+    var dataSourceOfSearch = [Photo](){
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +67,7 @@ class SearchBarTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.dataSourceOfPhotos.count
+        return self.searchBarController.isActive ? self.dataSourceOfSearch.count : self.dataSourceOfPhotos.count
     }
     
     
@@ -89,20 +95,32 @@ class SearchBarTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PhotoTableViewCell
         
-        cell.photoData = self.dataSourceOfPhotos[indexPath.row]
-
-        // Configure the cell...
-
+        
+        if self.searchBarController.isActive {
+            cell.photoData = self.dataSourceOfSearch[indexPath.row]
+        } else {
+            cell.photoData = self.dataSourceOfPhotos[indexPath.row]
+        }
+        
         return cell
     }
     
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        let textToFind = searchBar.text!
+        
+        RequestManager.sharedInstance.getImageByName(nameToSearch: textToFind) { (listOfPhotos, error) -> Void in
+            if error == nil {
+                self.dataSourceOfSearch = listOfPhotos!
+                
+            }
+        }
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
+        self.dataSourceOfSearch = self.dataSourceOfPhotos
     }
 
 }

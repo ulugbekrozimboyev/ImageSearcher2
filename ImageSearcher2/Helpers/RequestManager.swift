@@ -31,14 +31,25 @@ class RequestManager {
     }
     
     // rasm nomi bo'yicha qidirish
-    func getImageByName(nameToSearch name: String) {
+    func getImageByName(nameToSearch name: String, completionHandler: @escaping (_ listOfPhotos: [Photo]? , _ error: Error?) -> Void ) {
         let parametrs: [String: Any] = ["key": API.apiKey, "q" : name]
         
         Alamofire.request(API.baseURL, parameters: parametrs).responseJSON { response in
             
             switch(response.result) {
-            case .success(let value): print(value)
-            case .failure(let error): print(error)
+            case .success(let value):
+                let json = JSON(value)
+                var photos = [Photo]()
+                
+                if let hits = json["hits"].array {
+                    for item in hits {
+                        photos.append(Photo(json: item))
+                    }
+                }
+                
+                completionHandler(photos, nil)
+            case .failure(let error):
+                completionHandler(nil, error)
             }
             
         }
@@ -96,7 +107,7 @@ class RequestManager {
         Alamofire.request(url).responseImage { response in
             
             switch(response.result) {
-            case .success(let value): print(value)
+            case .success(let value):
                 completionHandler(value, nil)
             case .failure(let error):
                 print("error")

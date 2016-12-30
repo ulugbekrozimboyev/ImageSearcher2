@@ -31,7 +31,7 @@ class PhotoTableViewCell: UITableViewCell {
     var photoData: Photo? {
     
         didSet {
-            self.mainImage.image = nil
+            self.mainImage?.image = nil
             
             guard let photoData = self.photoData else {
                 return
@@ -46,7 +46,7 @@ class PhotoTableViewCell: UITableViewCell {
                 
                     DispatchQueue.main.async {
                         
-                        self!.mainImage.image = image
+                        self!.mainImage?.image = image
                         self!.activityIndicator.stopAnimating()
                         
                     }
